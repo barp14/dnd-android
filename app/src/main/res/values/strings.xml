@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Dungeons n Dragons</string>
+    <string name="title_second_main">Second Activity Title</string> <!-- Adicione esta linha -->
+    <string name="title_create_character">Create Character</string> <!-- Adicione esta linha -->
+    <!-- Adicione outras strings conforme necessário -->
+</resources>

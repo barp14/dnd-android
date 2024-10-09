@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textViewSelectRace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecione a Raça"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"/>
+
+    <Spinner
+        android:id="@+id/spinnerRaca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textViewSelectClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecione a Classe"
+        android:textSize="18sp"
+        android:layout_below="@id/spinnerRaca"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"/>
+
+    <Spinner
+        android:id="@+id/spinnerClasse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewSelectClass" />
+
+    <Button
+        android:id="@+id/buttonProsseguir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Prosseguir"
+        android:layout_below="@id/spinnerClasse"
+        android:layout_marginTop="16dp" />
+
+</RelativeLayout>
