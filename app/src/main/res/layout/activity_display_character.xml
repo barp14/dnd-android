@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Informações Básicas -->
+        <TextView
+            android:id="@+id/tv_nome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome: " />
+
+        <TextView
+            android:id="@+id/tv_raca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Raça: " />
+
+        <TextView
+            android:id="@+id/tv_classe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Classe: " />
+
+        <TextView
+            android:id="@+id/tv_vida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vida: " />
+
+        <!-- Atributos -->
+        <TextView
+            android:id="@+id/tv_forca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Força: " />
+
+        <TextView
+            android:id="@+id/tv_destreza"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Destreza: " />
+
+        <TextView
+            android:id="@+id/tv_constituicao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Constituição: " />
+
+        <TextView
+            android:id="@+id/tv_inteligencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inteligência: " />
+
+        <TextView
+            android:id="@+id/tv_sabedoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sabedoria: " />
+
+        <TextView
+            android:id="@+id/tv_carisma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Carisma: " />
+
+        <!-- Botão para Voltar ou Reiniciar -->
+        <Button
+            android:id="@+id/btn_reiniciar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Criar Novo Personagem" />
+
+    </LinearLayout>
+</ScrollView>

@@ -1,6 +1,9 @@
+// Racas/RacaPadrao.kt
 package Racas
 
-interface RacaPadrao {
+import java.io.Serializable
+
+interface RacaPadrao : Serializable {
   val nomeRaca: String
 
   val buffForca: Int

@@ -1,6 +1,7 @@
+<!-- res/values/strings.xml -->
 <resources>
     <string name="app_name">Dungeons n Dragons</string>
-    <string name="title_second_main">Second Activity Title</string> <!-- Adicione esta linha -->
-    <string name="title_create_character">Create Character</string> <!-- Adicione esta linha -->
+    <string name="prompt_raca">Selecione a Raça</string>
+    <string name="prompt_classe">Selecione a Classe</string>
     <!-- Adicione outras strings conforme necessário -->
 </resources>

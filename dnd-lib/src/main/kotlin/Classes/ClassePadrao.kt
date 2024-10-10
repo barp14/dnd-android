@@ -1,6 +1,9 @@
+// Classes/ClassePadrao.kt
 package Classes
 
-interface ClassePadrao {
+import java.io.Serializable
+
+interface ClassePadrao : Serializable {
   val nomeClasse: String
   var vidaClasse: Int
 }

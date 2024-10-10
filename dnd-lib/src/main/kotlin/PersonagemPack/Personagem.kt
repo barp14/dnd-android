@@ -2,9 +2,9 @@ package PersonagemPack
 
 import Classes.ClassePadrao
 import Racas.RacaPadrao
-import kotlin.math.floor
+import java.io.Serializable
 
-open class Personagem() {
+open class Personagem() : Serializable {
 
   lateinit var nome: String
   lateinit var classe: ClassePadrao
@@ -19,4 +19,3 @@ open class Personagem() {
   var carisma: Int = 0
 
 }
-

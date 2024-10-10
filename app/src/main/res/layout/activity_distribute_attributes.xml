@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Modo de Distribuição -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Escolha o modo de distribuição de atributos:" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupModo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rb_inserir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inserir Valores" />
+
+            <RadioButton
+                android:id="@+id/rb_aleatorio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Aleatório" />
+        </RadioGroup>
+
+        <!-- Campos de Atributos -->
+        <EditText
+            android:id="@+id/et_forca"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Força"
+            android:inputType="number"
+            android:visibility="gone"/>
+
+        <EditText
+            android:id="@+id/et_destreza"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Destreza"
+            android:inputType="number"
+            android:visibility="gone"/>
+
+        <EditText
+            android:id="@+id/et_constituicao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Constituição"
+            android:inputType="number"
+            android:visibility="gone"/>
+
+        <EditText
+            android:id="@+id/et_inteligencia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Inteligência"
+            android:inputType="number"
+            android:visibility="gone"/>
+
+        <EditText
+            android:id="@+id/et_sabedoria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Sabedoria"
+            android:inputType="number"
+            android:visibility="gone"/>
+
+        <EditText
+            android:id="@+id/et_carisma"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Carisma"
+            android:inputType="number"
+            android:visibility="gone"/>
+
+        <!-- Botão para Finalizar -->
+        <Button
+            android:id="@+id/btn_finalizar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Finalizar" />
+
+    </LinearLayout>
+</ScrollView>
