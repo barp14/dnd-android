@@ -1,74 +1,48 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- activity_create_character.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:padding="16dp"
+    <!-- Campo de entrada para o nome do personagem -->
+    <EditText
+        android:id="@+id/et_nome"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:hint="Nome do Personagem"
+        android:inputType="textPersonName"
+        android:padding="12dp" />
 
-        <!-- Rótulo para Nome do Personagem -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nome do Personagem"
-            android:textSize="16sp"
-            android:layout_marginBottom="4dp" />
+    <!-- Spinner para escolher a raça -->
+    <Spinner
+        android:id="@+id/spinner_raca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
 
-        <EditText
-            android:id="@+id/et_nome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Digite o nome do personagem"
-            android:background="@drawable/edit_text_background"
-            android:padding="12dp" />
+    <!-- Spinner para escolher a classe -->
+    <Spinner
+        android:id="@+id/spinner_classe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
 
-        <!-- Rótulo para Raça -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Selecione a Raça"
-            android:textSize="16sp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="4dp" />
+    <!-- Botão para continuar e distribuir atributos -->
+    <Button
+        android:id="@+id/btn_continuar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Continuar" />
 
-        <Spinner
-            android:id="@+id/spinner_raca"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:prompt="@string/prompt_raca"
-            android:background="@drawable/spinner_background"
-            android:padding="12dp" />
+    <!-- Botão para abrir a tela de ListCharactersActivity -->
+    <Button
+        android:id="@+id/btn_admin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Ver Personagens" />
 
-        <!-- Rótulo para Classe -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Selecione a Classe"
-            android:textSize="16sp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="4dp" />
-
-        <Spinner
-            android:id="@+id/spinner_classe"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:prompt="@string/prompt_classe"
-            android:background="@drawable/spinner_background"
-            android:padding="12dp" />
-
-        <!-- Botão para Continuar -->
-        <Button
-            android:id="@+id/btn_continuar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Continuar"
-            android:layout_marginTop="24dp"
-            android:background="@color/colorPrimary"
-            android:textColor="@android:color/white"
-            android:padding="12dp" />
-
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>

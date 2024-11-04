@@ -7,8 +7,19 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import PersonagemPack.Personagem
 import UtilPack.Escolha
+import android.util.Log
+import androidx.room.Room
+import com.up.ddm.data.PersonagemDao
+import com.up.ddm.data.PersonagemDatabase
+import com.up.ddm.data.PersonagemEntity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class DistributeAttributesActivity : AppCompatActivity() {
+
+    private lateinit var personagemDao: PersonagemDao
 
     private lateinit var radioGroupModo: RadioGroup
     private lateinit var rbInserir: RadioButton
@@ -28,6 +39,15 @@ class DistributeAttributesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_distribute_attributes)
+
+        // Instanciar o DAO aqui
+        val database = Room.databaseBuilder(
+            applicationContext,
+            PersonagemDatabase::class.java,
+            "rpg_database"
+        ).build()
+
+        personagemDao = database.personagemDao() // Inicializa o personagemDao
 
         radioGroupModo = findViewById(R.id.radioGroupModo)
         rbInserir = findViewById(R.id.rb_inserir)
@@ -57,15 +77,23 @@ class DistributeAttributesActivity : AppCompatActivity() {
         btnFinalizar.setOnClickListener {
             try {
                 if (rbInserir.isChecked) {
-                    // Coletar valores dos EditTexts
+                    // Coletar valores dos EditTexts e garantir que não sejam nulos
+                    val forca = etForca.text.toString().toIntOrNull() ?: 0
+                    val destreza = etDestreza.text.toString().toIntOrNull() ?: 0
+                    val constituicao = etConstituicao.text.toString().toIntOrNull() ?: 0
+                    val inteligencia = etInteligencia.text.toString().toIntOrNull() ?: 0
+                    val sabedoria = etSabedoria.text.toString().toIntOrNull() ?: 0
+                    val carisma = etCarisma.text.toString().toIntOrNull() ?: 0
+
                     val atributos = mapOf(
-                        "forca" to etForca.text.toString().toInt(),
-                        "destreza" to etDestreza.text.toString().toInt(),
-                        "constituicao" to etConstituicao.text.toString().toInt(),
-                        "inteligencia" to etInteligencia.text.toString().toInt(),
-                        "sabedoria" to etSabedoria.text.toString().toInt(),
-                        "carisma" to etCarisma.text.toString().toInt()
+                        "forca" to forca,
+                        "destreza" to destreza,
+                        "constituicao" to constituicao,
+                        "inteligencia" to inteligencia,
+                        "sabedoria" to sabedoria,
+                        "carisma" to carisma
                     )
+
                     Escolha.escolhaAtributos(personagem, atributos, 1)
                 } else if (rbAleatorio.isChecked) {
                     Escolha.escolhaAtributos(personagem, emptyMap(), 2)
@@ -74,10 +102,39 @@ class DistributeAttributesActivity : AppCompatActivity() {
                     return@setOnClickListener
                 }
 
-                // Passar o personagem para a próxima activity
-                val intent = Intent(this, DisplayCharacterActivity::class.java)
-                intent.putExtra("personagem", personagem)
-                startActivity(intent)
+                // Salvar o personagem no banco de dados após definir os atributos
+                val personagemEntity = PersonagemEntity(
+                    nome = personagem.nome,
+                    classe = personagem.classe.toString(),
+                    raca = personagem.raca.toString(),
+                    carisma = personagem.carisma,
+                    sabedoria = personagem.sabedoria,
+                    inteligencia = personagem.inteligencia,
+                    constituicao = personagem.constituicao,
+                    destreza = personagem.destreza,
+                    forca = personagem.forca,
+                    vida = personagem.vida
+                )
+
+                // Certifique-se de que o personagemDao foi inicializado corretamente
+                CoroutineScope(Dispatchers.IO).launch {
+                    try {
+                        val insertedId = personagemDao.insert(personagemEntity)
+                        Log.d("MeuApp", "Personagem inserido com ID: $insertedId")
+
+                        withContext(Dispatchers.Main) {
+                            // Passar para a próxima atividade
+                            val intent = Intent(this@DistributeAttributesActivity, DisplayCharacterActivity::class.java)
+                            intent.putExtra("personagem", personagem)
+                            startActivity(intent)
+                        }
+                    } catch (e: Exception) {
+                        Log.e("MeuApp", "Erro ao inserir personagem: ${e.message}", e)
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(this@DistributeAttributesActivity, "Não foi possível salvar o personagem.", Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
 
             } catch (e: Exception) {
                 Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
@@ -94,3 +151,4 @@ class DistributeAttributesActivity : AppCompatActivity() {
         etCarisma.visibility = visibility
     }
 }
+

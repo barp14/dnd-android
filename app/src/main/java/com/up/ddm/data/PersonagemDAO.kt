@@ -4,15 +4,18 @@ import androidx.room.*
 
 @Dao
 interface PersonagemDao {
-    @Query("SELECT * FROM personagem WHERE id = :id")
-    suspend fun getPersonagemById(id: Long): PersonagemEntity?
+    @Query("SELECT * FROM personagem")
+    fun getAllPersonagens(): List<PersonagemEntity>
 
-    @Insert
-    suspend fun insert(personagem: PersonagemEntity): Long
+    @Query("SELECT * FROM personagem WHERE id = :id")
+    fun getPersonagemById(id: Long): PersonagemEntity
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(personagem: PersonagemEntity): Long
 
     @Update
-    suspend fun update(personagem: PersonagemEntity): Int
+    fun update(personagem: PersonagemEntity): Int
 
     @Delete
-    suspend fun delete(personagem: PersonagemEntity): Int
+    fun delete(personagem: PersonagemEntity): Int
 }

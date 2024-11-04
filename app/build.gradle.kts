@@ -41,8 +41,14 @@ android {
 dependencies {
     // Room dependencies
     implementation("androidx.room:room-runtime:2.5.0")
+    implementation(libs.androidx.recyclerview)
     kapt("androidx.room:room-compiler:2.5.0")
     implementation("androidx.room:room-ktx:2.5.0")
+
+    implementation("androidx.room:room-runtime:2.4.3")
+    annotationProcessor("androidx.room:room-compiler:2.4.3")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0")
 
     // Project dependencies
     implementation(project(":dnd-lib"))

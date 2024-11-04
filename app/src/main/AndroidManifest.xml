@@ -21,10 +21,15 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Activity de Listagem de Personagens -->
+        <activity android:name=".ListCharactersActivity" />
+
+        <!-- Activity de Edição de Personagem -->
+        <activity android:name=".EditCharacterActivity" />
 
     </application>
 
