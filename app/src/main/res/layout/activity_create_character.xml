@@ -9,31 +9,66 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- Nome do Personagem -->
+        <!-- Rótulo para Nome do Personagem -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome do Personagem"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp" />
+
         <EditText
             android:id="@+id/et_nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nome do Personagem" />
+            android:hint="Digite o nome do personagem"
+            android:background="@drawable/edit_text_background"
+            android:padding="12dp" />
+
+        <!-- Rótulo para Raça -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selecione a Raça"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp" />
 
         <Spinner
             android:id="@+id/spinner_raca"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:prompt="@string/prompt_raca" />
+            android:prompt="@string/prompt_raca"
+            android:background="@drawable/spinner_background"
+            android:padding="12dp" />
+
+        <!-- Rótulo para Classe -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selecione a Classe"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp" />
 
         <Spinner
             android:id="@+id/spinner_classe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:prompt="@string/prompt_classe" />
+            android:prompt="@string/prompt_classe"
+            android:background="@drawable/spinner_background"
+            android:padding="12dp" />
 
         <!-- Botão para Continuar -->
         <Button
             android:id="@+id/btn_continuar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Continuar" />
+            android:text="Continuar"
+            android:layout_marginTop="24dp"
+            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:padding="12dp" />
 
     </LinearLayout>
 </ScrollView>
